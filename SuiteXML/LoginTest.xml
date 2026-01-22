@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+
+<suite name="Suite">
+
+	<listeners>
+
+		<listener class-name="com.listeners.MyTestNGListeners"> </listener>
+		<!--need to mention where listener class is present-->
+		
+		<listener class-name="com.aventstack.chaintest.plugins.ChainTestListener"></listener>
+		
+		<listener class-name="com.listeners.RetryTransformer"></listener>
+
+	</listeners>
+
+
+	<test name="LoginTest">
+		<classes>
+			<class name="com.testcases.LoginTest" />
+			<class name="com.testcases.DashboardTest" />
+			<class name="com.testcases.CartTest" />
+		</classes>
+	</test>
+
+</suite> 
+
