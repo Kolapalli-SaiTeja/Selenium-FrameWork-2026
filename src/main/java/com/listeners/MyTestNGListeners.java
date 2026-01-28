@@ -1,5 +1,9 @@
 package com.listeners;
 
+import java.io.File;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
@@ -9,6 +13,29 @@ import com.factory.BrowserFactory;
 import com.helper.Utility;
 
 public class MyTestNGListeners implements ITestListener {
+	
+	
+	
+	private static final  String RUN_TS;
+	
+	private static final String REPORT_DIR;
+	
+	
+	static {
+		
+		RUN_TS = LocalDateTime.now().format(DateTimeFormatter.ofPattern("hh_mm_ss_dd_MM_yyyy"));
+		
+		REPORT_DIR = "Reports/chaintest_" +RUN_TS;
+		
+		new File(REPORT_DIR).mkdir();
+		
+		
+		System.setProperty("chaintest.generator.simple.output-file",REPORT_DIR + "/Index.html");
+		
+		System.setProperty("chaintest.generator.email.output-file",REPORT_DIR + "/Email.html");
+		
+	}
+
 
 	public void onTestSuccess(ITestResult result) {
 
