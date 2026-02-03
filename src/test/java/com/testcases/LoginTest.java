@@ -24,7 +24,7 @@ public class LoginTest extends Baseclass {
 
 	public void validLogin(String email, String password) {
 
-		login = new LoginPage(driver);
+		login = new LoginPage(getDriver());
 
 		dashboard = login.loginToApplication(email, password);
 

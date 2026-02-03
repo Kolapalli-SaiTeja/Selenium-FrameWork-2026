@@ -19,6 +19,8 @@ public class CartPage {
 
 	private By EnrollButton = By.xpath("//div[@class='top-container']/button");
 
+	
+	
 	public String totalPrice() {
 
 		String text = CustomWaits.VisibilityOfElement(driver, TotalPrice).getText();

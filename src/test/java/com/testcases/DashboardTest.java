@@ -3,6 +3,7 @@ package com.testcases;
 import java.util.List;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -12,10 +13,22 @@ import com.dataprovider.DataProviders;
 import com.pages.DashboardPage;
 import com.pages.LoginPage;
 
-public class DashboardTest extends BaseTest {
+public class DashboardTest extends Baseclass {
 
+	LoginPage login;
+
+	DashboardPage dashboard;
+
+	@BeforeClass
+	public void loginOnce() {
+		
+		 dashboard = doLogin(ConfigUtility.readProperty("username"), ConfigUtility.readProperty("password"));
+
+	}
 	
-	@Test(priority = 1)
+	
+
+	@Test(priority = 1 )
 	public void coursesList() {
 
 		List<String> courses = dashboard.coursesPresent();
@@ -25,18 +38,11 @@ public class DashboardTest extends BaseTest {
 	}
 
 	@Test(dataProvider = "courses", dataProviderClass = DataProviders.class, priority = 2)
-	
+
 	public void addTocart(String... courses) {
-		
+
 		dashboard.addToCart(courses);
-				
+
 	}
-	
-	
-	
-	
-	
-	
-	
 
 }

@@ -16,17 +16,19 @@ import com.helper.CustomWaits;
 
 public class BrowserFactory {
 
-	protected static WebDriver driver;
+	 private static ThreadLocal<WebDriver> tl = new ThreadLocal<>();
 	
 
 	// getter method to get driver of current test
 	public static WebDriver getDriver() {
 
-		return driver;
+		return tl.get();
 
 	}
 
 	public static WebDriver startBrowser(String browser, String URL) {
+		
+		 WebDriver driver;
 
 		if (browser.equalsIgnoreCase("Chrome") || browser.equalsIgnoreCase("google chrome")) {
 
@@ -82,6 +84,9 @@ public class BrowserFactory {
 
 		}
 
+		
+		tl.set(driver); 
+		
 		driver.get(URL);
 
 		String wait = ConfigUtility.readProperty("implicitWait");
