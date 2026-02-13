@@ -14,8 +14,8 @@ import com.pages.LoginPage;
 
 public class Baseclass {
 
-	private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
+	
 	public WebDriver getDriver() {
 
 		return BrowserFactory.getDriver();
@@ -30,9 +30,8 @@ public class Baseclass {
 		
 		String browser = ConfigUtility.readProperty("browser");
 
-		WebDriver localDriver = BrowserFactory.startBrowser(browser, appURL + "/login");
+		BrowserFactory.startBrowser(browser, appURL + "/login");
 
-		driver.set(localDriver);
 	}
 
 	@AfterClass(alwaysRun = true)
@@ -41,7 +40,7 @@ public class Baseclass {
 		
 		getDriver().quit();
 		
-		driver.remove();
+		BrowserFactory.unload();
 	}
 
 	protected DashboardPage doLogin(String email, String password) {

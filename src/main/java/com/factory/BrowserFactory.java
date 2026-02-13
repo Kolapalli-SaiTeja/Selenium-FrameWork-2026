@@ -16,15 +16,22 @@ import com.helper.CustomWaits;
 
 public class BrowserFactory {
 
-	 private static ThreadLocal<WebDriver> tl = new ThreadLocal<>();
+	 private static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
 	
+	 
+	   public static WebDriver getDriver() {
+		   
+	        return tlDriver.get();
+	    }
 
-	// getter method to get driver of current test
-	public static WebDriver getDriver() {
+	    public static void setDriver(WebDriver driver) {
+	        tlDriver.set(driver);
+	    }
 
-		return tl.get();
+	    public static void unload() {
+	        tlDriver.remove();
+	    }
 
-	}
 
 	public static WebDriver startBrowser(String browser, String URL) {
 		
@@ -85,7 +92,7 @@ public class BrowserFactory {
 		}
 
 		
-		tl.set(driver); 
+		setDriver(driver); 
 		
 		driver.get(URL);
 
