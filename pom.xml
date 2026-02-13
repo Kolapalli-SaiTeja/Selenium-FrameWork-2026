@@ -81,7 +81,7 @@
 				<version>3.5.4</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>SuiteXML/No_Parallel.xml</suiteXmlFile>
+						<suiteXmlFile>SuiteXML/${xmlfiles}</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>

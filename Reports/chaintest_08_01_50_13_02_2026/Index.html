@@ -1,0 +1,805 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>AutomationTest Report</title>
+    <link id="style" href="resources/chaintest-pkg.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style></style>
+</head>
+
+<body data-bs-theme="dark">
+  <nav class="navbar border-bottom">
+    <div class="container d-flex justify-content-between">
+      <div>
+        <a class="navbar-brand" href="#">ChainTest</a>
+        <span class="ms-3 fs-6">default</span>
+      </div>
+      <div>
+        <span class="badge badge-outline text-lg"><i class="bi bi-hourglass me-1"></i> 31s</span>
+        <span class="badge badge-outline text-lg"><i class="bi bi-clock me-1 text-success"></i> 2026-02-13 08:01:50 PM</span>
+        <span class="badge badge-outline text-lg me-3"><i class="bi bi-clock me-1 text-danger"></i> 2026-02-13 08:02:22 PM</span>
+          <button role="button" id="sys-info" class="btn btn-outline-primary smaller" title="View System Info">
+            <i class="bi bi-pc-display-horizontal"></i></button>
+        <button role="button" id="shortcuts" class="btn btn-outline-primary smaller" title="Shortcuts">
+          <i class="bi bi-info-circle"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="summary" class="container-fluid bg-body-tertiary">
+    <!-- dashboard section -->
+    <div id="dashboard" class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-4">
+            <div class="card card-custom" style="height: 175px">
+              <div class="card-header">
+                Suites
+              </div>
+              <div class="card-body d-flex justify-content-center" style="height: 90px;">
+                <div class="chart-view center" style="margin-left: -1rem;">
+                  <canvas id="stats1"></canvas>
+                </div>
+              </div>
+              <div class="card-footer small">
+                <span id="sp1">0</span> Passed,
+                <span id="sf1">1</span> Failed,
+                <span id="ss1">0</span> Skipped
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card card-custom" style="height: 175px">
+              <div class="card-header">
+                Classes
+              </div>
+              <div class="card-body d-flex justify-content-center" style="height: 90px;">
+                <div class="chart-view center" style="margin-left: -1rem;">
+                  <canvas id="stats2"></canvas>
+                </div>
+              </div>
+              <div class="card-footer small">
+                <span id="sp2">8</span> Passed,
+                <span id="sf2">1</span> Failed,
+                <span id="ss2">0</span> Skipped
+              </div>
+            </div>
+          </div>
+            <div class="col-4">
+              <div class="card card-custom" style="height: 175px">
+                <div class="card-header">
+                  Methods
+                </div>
+                <div class="card-body d-flex justify-content-center" style="height: 90px;">
+                  <div class="chart-view center" style="margin-left: -1rem;">
+                    <canvas id="stats3"></canvas>
+                  </div>
+                </div>
+                <div class="card-footer small">
+                  <span id="sp3">15</span> Passed,
+                  <span id="sf3">0</span> Failed,
+                  <span id="ss3">1</span> Skipped
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- /dashboard section -->
+
+    <!-- tag section -->
+    <!-- /tag section -->
+  </div>
+
+  <div class="container-fluid">
+    <div class="py-3 mb-5">
+      <div class="container d-flex justify-content-between">
+        <div class="input-group">
+          <input type="text" id="q" class="form-control border" placeholder="Search..." aria-label="Search...">
+          <button class="btn border btn-sm text-success status-filter" id="passed" type="button">Passed</button>
+          <button class="btn border btn-sm text-warning status-filter" id="skipped" type="button">Skipped</button>
+          <button class="btn border btn-sm text-danger status-filter" id="failed" type="button">Failed</button>
+          <button id="clear-filters" class="btn border btn-sm"><i class="bi bi-x-lg me-1"></i>Clear all filters</button>
+          <button type="button" id="summary-toggle" class="btn border btn-sm"><i class="bi bi-toggle-on me-1"></i> Toggle Summary Section</button>
+        </div>
+      </div>
+    </div>
+      <div class="test-container failed">
+        <div class="container">
+          <div class="row">
+            <div class="col-4">
+              <h6 class="mb-3 testname fs-6 failed">Suite</h6>
+              <div class="small">
+                <span class="badge badge-outline"><i class="bi bi-hourglass me-1"></i> 30s</span>
+                <span class="badge text-bg-info"><i class="bi bi-clock me-1"></i>
+                  2026-02-13 08:01:51 PM</span>
+                <span class="badge text-bg-warning"><i class="bi bi-clock me-1"></i>
+                  2026-02-13 08:02:21 PM</span>
+              </div>
+              
+            </div>
+            <div class="col-8">
+                <div class="card mb-3 result passed">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                          <i class="bi bi-check-circle-fill text-success"></i>
+                        <span class="fs-6 ms-2">com.testcases.CartTest</span>
+                      </div>
+                      <div>
+                        <span class="badge text-dark bg-light">0ms</span>
+                      </div>
+                    </div>
+                    
+
+                  </div>
+                </div>
+                <div class="card mb-3 result passed">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                          <i class="bi bi-check-circle-fill text-success"></i>
+                        <span class="fs-6 ms-2">com.testcases.CartTest</span>
+                      </div>
+                      <div>
+                        <span class="badge text-dark bg-light">0ms</span>
+                      </div>
+                    </div>
+                    
+
+                  </div>
+                </div>
+                <div class="card mb-3 result failed">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                          <i class="bi bi-exclamation-octagon-fill text-danger"></i>
+                        <span class="fs-6 ms-2">com.testcases.CartTest</span>
+                      </div>
+                      <div>
+                        <span class="badge text-dark bg-light">11s</span>
+                      </div>
+                    </div>
+                    
+  <div class="mt-3 border-top">
+    <div class="leaf skipped pb-1 ">
+      <div class="d-flex justify-content-between mt-3">
+        <div>
+            <i class="bi bi-exclamation-octagon-fill text-info"></i>
+          <span class="fs-6 ms-2">verifyCartPrice </span>
+        </div>
+        <div>
+          <span class="badge text-dark bg-light">69ms</span>
+        </div>
+      </div>
+      <p class="desc">[[Ljava.lang.String;@469d49b3]</p>
+        <pre class="py-2 mt-2 mb-4">org.openqa.selenium.NoSuchElementException: no such element: element not found
+  (Session info: chrome=144.0.7559.133)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: '4.39.0', revision: '126f156aee'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.5'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [9a59c1e26d7015b958be65715a1b43eb, executeScript {script=arguments[0].setAttribute('style', 'background: yellow; border: 2px solid red;');, args=[{element-6066-11e4-a52e-4f735466cecf=f.40F4CCD14E375BC98CC4DB6D8BE59518.d.E2B3992C79FDBF1025DD13E54E8D800B.e.5}]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.133, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: C:\Users\Teja\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54841}, goog:processID: 6740, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54841/devtoo..., se:cdpVersion: 144.0.7559.133, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 9a59c1e26d7015b958be65715a1b43eb
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:561)
+	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:492)
+	at com.helper.CustomWaits.highLightElement(CustomWaits.java:24)
+	at com.helper.CustomWaits.ElementToBeClickable(CustomWaits.java:42)
+	at com.pages.LoginPage.loginToApplication(LoginPage.java:47)
+	at com.testcases.CartTest.verifyCartPrice(CartTest.java:24)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre>
+        <div class="row mt-3">
+            <div class="embed col-2 mb-1">
+              <img src="resources/b3935c54-ec8f-4fe9-958e-e36e606aa438.png" />
+            </div>
+        </div>
+    </div>
+    <div class="leaf passed pb-1 ">
+      <div class="d-flex justify-content-between mt-3">
+        <div>
+            <i class="bi bi-check-circle-fill text-success"></i>
+          <span class="fs-6 ms-2">verifyCartPrice </span>
+        </div>
+        <div>
+          <span class="badge text-dark bg-light">8s</span>
+        </div>
+      </div>
+      <p class="desc">[[Ljava.lang.String;@7f91e860]</p>
+        <div class="row mt-3">
+            <div class="embed col-2 mb-1">
+              <img src="resources/bd5e464c-9f0a-4152-89d9-877c4b022c99.png" />
+            </div>
+        </div>
+    </div>
+    <div class="leaf passed pb-1 ">
+      <div class="d-flex justify-content-between mt-3">
+        <div>
+            <i class="bi bi-check-circle-fill text-success"></i>
+          <span class="fs-6 ms-2">verifyCartPrice </span>
+        </div>
+        <div>
+          <span class="badge text-dark bg-light">8s</span>
+        </div>
+      </div>
+      <p class="desc">[[Ljava.lang.String;@622d48ff]</p>
+        <div class="row mt-3">
+            <div class="embed col-2 mb-1">
+              <img src="resources/abb61b9d-43e1-41f0-a08a-93a4a79f6b73.png" />
+            </div>
+        </div>
+    </div>
+    <div class="leaf passed pb-1 logs-toggle">
+      <div class="d-flex justify-content-between mt-3">
+        <div>
+            <i class="bi bi-check-circle-fill text-success"></i>
+          <span class="fs-6 ms-2">verifyCartPrice <i role="button" class="bi bi-caret-down-fill text-muted small"></i></span>
+        </div>
+        <div>
+          <span class="badge text-dark bg-light">8s</span>
+        </div>
+      </div>
+      <p class="desc">[[Ljava.lang.String;@469d49b3]</p>
+        <div class="mt-3 logs d-none">
+          <pre class="pb-0">
+LOG:INFO-Test skipped verifyCartPrice
+LOG:INFO-Exceptionno such element: element not found
+  (Session info: chrome=144.0.7559.133)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: '4.39.0', revision: '126f156aee'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.5'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [9a59c1e26d7015b958be65715a1b43eb, executeScript {script=arguments[0].setAttribute('style', 'background: yellow; border: 2px solid red;');, args=[{element-6066-11e4-a52e-4f735466cecf=f.40F4CCD14E375BC98CC4DB6D8BE59518.d.E2B3992C79FDBF1025DD13E54E8D800B.e.5}]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.133, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: C:\Users\Teja\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54841}, goog:processID: 6740, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54841/devtoo..., se:cdpVersion: 144.0.7559.133, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 9a59c1e26d7015b958be65715a1b43eb
+          </pre>
+        </div>
+        <div class="row mt-3">
+            <div class="embed col-2 mb-1">
+              <img src="resources/500500b9-73b4-4f71-942e-a8de32965c31.png" />
+            </div>
+        </div>
+    </div>
+  </div>
+
+                  </div>
+                </div>
+                <div class="card mb-3 result passed">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                          <i class="bi bi-check-circle-fill text-success"></i>
+                        <span class="fs-6 ms-2">com.testcases.DashboardTest</span>
+                      </div>
+                      <div>
+                        <span class="badge text-dark bg-light">0ms</span>
+                      </div>
+                    </div>
+                    
+
+                  </div>
+                </div>
+                <div class="card mb-3 result passed">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                          <i class="bi bi-check-circle-fill text-success"></i>
+                        <span class="fs-6 ms-2">com.testcases.DashboardTest</span>
+                      </div>
+                      <div>
+                        <span class="badge text-dark bg-light">0ms</span>
+                      </div>
+                    </div>
+                    
+
+                  </div>
+                </div>
+                <div class="card mb-3 result passed">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                          <i class="bi bi-check-circle-fill text-success"></i>
+                        <span class="fs-6 ms-2">com.testcases.DashboardTest</span>
+                      </div>
+                      <div>
+                        <span class="badge text-dark bg-light">9s</span>
+                      </div>
+                    </div>
+                    
+  <div class="mt-3 border-top">
+    <div class="leaf passed pb-1 logs-toggle">
+      <div class="d-flex justify-content-between mt-3">
+        <div>
+            <i class="bi bi-check-circle-fill text-success"></i>
+          <span class="fs-6 ms-2">coursesList <i role="button" class="bi bi-caret-down-fill text-muted small"></i></span>
+        </div>
+        <div>
+          <span class="badge text-dark bg-light">689ms</span>
+        </div>
+      </div>
+      <p class="desc"></p>
+        <div class="mt-3 logs d-none">
+          <pre class="pb-0">
+LOG:INFO-Test Passed verifyCartPrice
+          </pre>
+        </div>
+        <div class="row mt-3">
+            <div class="embed col-2 mb-1">
+              <img src="resources/946f1a06-ad9a-4336-ba66-7287f807c5ff.png" />
+            </div>
+        </div>
+    </div>
+    <div class="leaf passed pb-1 logs-toggle">
+      <div class="d-flex justify-content-between mt-3">
+        <div>
+            <i class="bi bi-check-circle-fill text-success"></i>
+          <span class="fs-6 ms-2">coursesList <i role="button" class="bi bi-caret-down-fill text-muted small"></i></span>
+        </div>
+        <div>
+          <span class="badge text-dark bg-light">631ms</span>
+        </div>
+      </div>
+      <p class="desc"></p>
+        <div class="mt-3 logs d-none">
+          <pre class="pb-0">
+LOG:INFO-Test Passed verifyCartPrice
+          </pre>
+        </div>
+        <div class="row mt-3">
+            <div class="embed col-2 mb-1">
+              <img src="resources/1566aa11-01fc-4312-897f-425e4cda606a.png" />
+            </div>
+        </div>
+    </div>
+    <div class="leaf passed pb-1 logs-toggle">
+      <div class="d-flex justify-content-between mt-3">
+        <div>
+            <i class="bi bi-check-circle-fill text-success"></i>
+          <span class="fs-6 ms-2">coursesList <i role="button" class="bi bi-caret-down-fill text-muted small"></i></span>
+        </div>
+        <div>
+          <span class="badge text-dark bg-light">717ms</span>
+        </div>
+      </div>
+      <p class="desc"></p>
+        <div class="mt-3 logs d-none">
+          <pre class="pb-0">
+LOG:INFO-Test Passed verifyCartPrice
+          </pre>
+        </div>
+        <div class="row mt-3">
+            <div class="embed col-2 mb-1">
+              <img src="resources/6f5e5ae3-e646-4fea-b5cd-3265d92c17ac.png" />
+            </div>
+        </div>
+    </div>
+    <div class="leaf passed pb-1 logs-toggle">
+      <div class="d-flex justify-content-between mt-3">
+        <div>
+            <i class="bi bi-check-circle-fill text-success"></i>
+          <span class="fs-6 ms-2">addTocart <i role="button" class="bi bi-caret-down-fill text-muted small"></i></span>
+        </div>
+        <div>
+          <span class="badge text-dark bg-light">3s</span>
+        </div>
+      </div>
+      <p class="desc">[[Ljava.lang.String;@7b4bfd8]</p>
+        <div class="mt-3 logs d-none">
+          <pre class="pb-0">
+LOG:INFO-Test Passed coursesList
+          </pre>
+        </div>
+        <div class="row mt-3">
+            <div class="embed col-2 mb-1">
+              <img src="resources/d3712394-d1f6-479f-a9bc-64498b4ed685.png" />
+            </div>
+        </div>
+    </div>
+    <div class="leaf passed pb-1 logs-toggle">
+      <div class="d-flex justify-content-between mt-3">
+        <div>
+            <i class="bi bi-check-circle-fill text-success"></i>
+          <span class="fs-6 ms-2">addTocart <i role="button" class="bi bi-caret-down-fill text-muted small"></i></span>
+        </div>
+        <div>
+          <span class="badge text-dark bg-light">3s</span>
+        </div>
+      </div>
+      <p class="desc">[[Ljava.lang.String;@7f364565]</p>
+        <div class="mt-3 logs d-none">
+          <pre class="pb-0">
+LOG:INFO-Test Passed coursesList
+          </pre>
+        </div>
+        <div class="row mt-3">
+            <div class="embed col-2 mb-1">
+              <img src="resources/43b41613-8fb5-4312-9ef7-e427adba8f98.png" />
+            </div>
+        </div>
+    </div>
+    <div class="leaf passed pb-1 logs-toggle">
+      <div class="d-flex justify-content-between mt-3">
+        <div>
+            <i class="bi bi-check-circle-fill text-success"></i>
+          <span class="fs-6 ms-2">addTocart <i role="button" class="bi bi-caret-down-fill text-muted small"></i></span>
+        </div>
+        <div>
+          <span class="badge text-dark bg-light">3s</span>
+        </div>
+      </div>
+      <p class="desc">[[Ljava.lang.String;@674f4fe2]</p>
+        <div class="mt-3 logs d-none">
+          <pre class="pb-0">
+LOG:INFO-Test Passed coursesList
+          </pre>
+        </div>
+        <div class="row mt-3">
+            <div class="embed col-2 mb-1">
+              <img src="resources/a004bb2b-fc85-4805-a5fe-de9ba4ccf1dd.png" />
+            </div>
+        </div>
+    </div>
+  </div>
+
+                  </div>
+                </div>
+                <div class="card mb-3 result passed">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                          <i class="bi bi-check-circle-fill text-success"></i>
+                        <span class="fs-6 ms-2">com.testcases.LoginTest</span>
+                      </div>
+                      <div>
+                        <span class="badge text-dark bg-light">0ms</span>
+                      </div>
+                    </div>
+                    
+
+                  </div>
+                </div>
+                <div class="card mb-3 result passed">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                          <i class="bi bi-check-circle-fill text-success"></i>
+                        <span class="fs-6 ms-2">com.testcases.LoginTest</span>
+                      </div>
+                      <div>
+                        <span class="badge text-dark bg-light">0ms</span>
+                      </div>
+                    </div>
+                    
+
+                  </div>
+                </div>
+                <div class="card mb-3 result passed">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                          <i class="bi bi-check-circle-fill text-success"></i>
+                        <span class="fs-6 ms-2">com.testcases.LoginTest</span>
+                      </div>
+                      <div>
+                        <span class="badge text-dark bg-light">8s</span>
+                      </div>
+                    </div>
+                    
+  <div class="mt-3 border-top">
+    <div class="leaf passed pb-1 logs-toggle">
+      <div class="d-flex justify-content-between mt-3">
+        <div>
+            <i class="bi bi-check-circle-fill text-success"></i>
+          <span class="fs-6 ms-2">validLogin <i role="button" class="bi bi-caret-down-fill text-muted small"></i></span>
+        </div>
+        <div>
+          <span class="badge text-dark bg-light">6s</span>
+        </div>
+      </div>
+      <p class="desc">[tejarocks555@gmail.com, admin@123]</p>
+        <div class="mt-3 logs d-none">
+          <pre class="pb-0">
+LOG:INFO-Test Passed addTocart
+          </pre>
+        </div>
+        <div class="row mt-3">
+            <div class="embed col-2 mb-1">
+              <img src="resources/981c1266-129c-4f39-9ca8-d2ebe42cf548.png" />
+            </div>
+        </div>
+    </div>
+    <div class="leaf passed pb-1 logs-toggle">
+      <div class="d-flex justify-content-between mt-3">
+        <div>
+            <i class="bi bi-check-circle-fill text-success"></i>
+          <span class="fs-6 ms-2">validLogin <i role="button" class="bi bi-caret-down-fill text-muted small"></i></span>
+        </div>
+        <div>
+          <span class="badge text-dark bg-light">7s</span>
+        </div>
+      </div>
+      <p class="desc">[tejarocks555@gmail.com, admin@123]</p>
+        <div class="mt-3 logs d-none">
+          <pre class="pb-0">
+LOG:INFO-Test Passed addTocart
+          </pre>
+        </div>
+        <div class="row mt-3">
+            <div class="embed col-2 mb-1">
+              <img src="resources/3588456d-4d42-45c6-974c-a3dbc254a453.png" />
+            </div>
+        </div>
+    </div>
+    <div class="leaf passed pb-1 logs-toggle">
+      <div class="d-flex justify-content-between mt-3">
+        <div>
+            <i class="bi bi-check-circle-fill text-success"></i>
+          <span class="fs-6 ms-2">validLogin <i role="button" class="bi bi-caret-down-fill text-muted small"></i></span>
+        </div>
+        <div>
+          <span class="badge text-dark bg-light">7s</span>
+        </div>
+      </div>
+      <p class="desc">[tejarocks555@gmail.com, admin@123]</p>
+        <div class="mt-3 logs d-none">
+          <pre class="pb-0">
+LOG:INFO-Test Passed addTocart
+          </pre>
+        </div>
+        <div class="row mt-3">
+            <div class="embed col-2 mb-1">
+              <img src="resources/18935299-2327-433c-9923-a8b374637e43.png" />
+            </div>
+        </div>
+    </div>
+    <div class="leaf passed pb-1 logs-toggle">
+      <div class="d-flex justify-content-between mt-3">
+        <div>
+            <i class="bi bi-check-circle-fill text-success"></i>
+          <span class="fs-6 ms-2">verifyFooterLinks <i role="button" class="bi bi-caret-down-fill text-muted small"></i></span>
+        </div>
+        <div>
+          <span class="badge text-dark bg-light">31ms</span>
+        </div>
+      </div>
+      <p class="desc">verify footer links</p>
+        <div class="mt-3 logs d-none">
+          <pre class="pb-0">
+LOG:INFO-Test Passed validLogin
+          </pre>
+        </div>
+        <div class="row mt-3">
+            <div class="embed col-2 mb-1">
+              <img src="resources/2f59bf01-061d-4b32-b3a0-6f0dee971e81.png" />
+            </div>
+        </div>
+    </div>
+    <div class="leaf passed pb-1 logs-toggle">
+      <div class="d-flex justify-content-between mt-3">
+        <div>
+            <i class="bi bi-check-circle-fill text-success"></i>
+          <span class="fs-6 ms-2">verifyFooterLinks <i role="button" class="bi bi-caret-down-fill text-muted small"></i></span>
+        </div>
+        <div>
+          <span class="badge text-dark bg-light">28ms</span>
+        </div>
+      </div>
+      <p class="desc">verify footer links</p>
+        <div class="mt-3 logs d-none">
+          <pre class="pb-0">
+LOG:INFO-Test Passed validLogin
+          </pre>
+        </div>
+        <div class="row mt-3">
+            <div class="embed col-2 mb-1">
+              <img src="resources/5944f53e-c836-483d-8601-919e8583d61a.png" />
+            </div>
+        </div>
+    </div>
+    <div class="leaf passed pb-1 logs-toggle">
+      <div class="d-flex justify-content-between mt-3">
+        <div>
+            <i class="bi bi-check-circle-fill text-success"></i>
+          <span class="fs-6 ms-2">verifyFooterLinks <i role="button" class="bi bi-caret-down-fill text-muted small"></i></span>
+        </div>
+        <div>
+          <span class="badge text-dark bg-light">31ms</span>
+        </div>
+      </div>
+      <p class="desc">verify footer links</p>
+        <div class="mt-3 logs d-none">
+          <pre class="pb-0">
+LOG:INFO-Test Passed validLogin
+          </pre>
+        </div>
+        <div class="row mt-3">
+            <div class="embed col-2 mb-1">
+              <img src="resources/a1dbccdb-adc2-440d-8a92-021f82975357.png" />
+            </div>
+        </div>
+    </div>
+  </div>
+
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+          <div class="border-bottom py-5"></div>
+      </div>
+  </div>
+
+  <script>
+    const stats1Annotation = {'total': 1, 'passed': 0};
+    const stats1 = [
+      { result: 'Passed', count: 0, bg: 'rgb(140, 197, 83)' },
+      { result: 'Failed', count: 1, bg: 'rgb(233,80,113)' },
+      { result: 'Skipped', count: 0, bg: 'rgb(13, 202, 240)' }
+    ];
+      const stats2Annotation = {'total': 9, 'passed': 8};
+      const stats2 = [
+        { result: 'Passed', count: 8, bg: 'rgb(140, 197, 83)' },
+        { result: 'Failed', count: 1, bg: 'rgb(233,80,113)' },
+        { result: 'Skipped', count: 0, bg: 'rgb(13, 202, 240)' }
+      ];
+      const stats3Annotation = {'total': 16, 'passed': 15};
+      const stats3 = [
+        { result: 'Passed', count: 15, bg: 'rgb(140, 197, 83)' },
+        { result: 'Failed', count: 0, bg: 'rgb(233,80,113)' },
+        { result: 'Skipped', count: 1, bg: 'rgb(13, 202, 240)' }
+      ];
+     
+  </script>
+    <script src="resources/chaintest-pkg.js"></script>
+
+    <div id="sys-info-modal" class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h6 class="modal-title">System</h6>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+              onclick="toggleSysInfo(false)"></button>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <tbody>
+                  <tr>
+                    <td>java.version</td>
+                    <td>21.0.5</td>
+                  </tr>
+                  <tr>
+                    <td>java.vm.name</td>
+                    <td>Java HotSpot(TM) 64-Bit Server VM</td>
+                  </tr>
+                  <tr>
+                    <td>java.vm.vendor</td>
+                    <td>Oracle Corporation</td>
+                  </tr>
+                  <tr>
+                    <td>java.class.version</td>
+                    <td>65.0</td>
+                  </tr>
+                  <tr>
+                    <td>java.runtime.name</td>
+                    <td>Java(TM) SE Runtime Environment</td>
+                  </tr>
+                  <tr>
+                    <td>os.name</td>
+                    <td>Windows 10</td>
+                  </tr>
+                  <tr>
+                    <td>os.arch</td>
+                    <td>amd64</td>
+                  </tr>
+                  <tr>
+                    <td>os.version</td>
+                    <td>10.0</td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+              onclick="toggleSysInfo(false)">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div id="info-modal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title">ChainTest Simple Generator - Shortcuts</h6>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            onclick="toggleInfoModal(false)"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table">
+            <tbody>
+                <tr>
+                  <td>p</td>
+                  <td>Toggle passed tests</td>
+                </tr>
+                <tr>
+                  <td>s</td>
+                  <td>Toggle skipped tests</td>
+                </tr>
+                <tr>
+                  <td>L</td>
+                  <td>Toggle theme (light/dark)</td>
+                </tr>
+                <tr>
+                  <td>esc</td>
+                  <td>Reset all filters</td>
+                </tr>
+                <tr>
+                  <td>f</td>
+                  <td>Toggle failed tests</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+            onclick="toggleInfoModal(false)">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="attachment-modal" class="modal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title">Attachment</h6>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            onclick="toggleAttachmentModal(false)"></button>
+        </div>
+        <div class="modal-body">
+          <img src="" />
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+            onclick="toggleAttachmentModal(false)">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
