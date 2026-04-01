@@ -10,6 +10,7 @@ import com.base.Baseclass;
 import com.dataprovider.DataProviders;
 import com.dataprovider.ExcelUtility;
 import com.listeners.MyTestNGListeners;
+import com.listeners.RetryAnalyzer;
 import com.pages.DashboardPage;
 import com.pages.LoginPage;
 
@@ -20,7 +21,7 @@ public class LoginTest extends Baseclass {
 
 	DashboardPage dashboard;
 
-	@Test(dataProvider = "login", dataProviderClass = DataProviders.class, priority = 2)
+	@Test(dataProvider = "login", dataProviderClass = DataProviders.class, priority = 2, retryAnalyzer = RetryAnalyzer.class)
 
 	public void validLogin(String email, String password) {
 

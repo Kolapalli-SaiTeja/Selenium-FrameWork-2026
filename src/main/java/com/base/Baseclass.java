@@ -21,14 +21,14 @@ public class Baseclass {
 		return BrowserFactory.getDriver();
 	}
 
-	@Parameters("browser")
+//	@Parameters("browser")
 
 	@BeforeClass
-	public void setup(String browser) {
+	public void setup() {
 
 		String appURL = ConfigUtility.readProperty("qaurl");
 		
-	//	String browser = ConfigUtility.readProperty("browser");
+		String browser = ConfigUtility.readProperty("browser");
 
 		BrowserFactory.startBrowser(browser, appURL + "/login");
 
